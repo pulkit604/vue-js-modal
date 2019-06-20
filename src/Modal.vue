@@ -458,7 +458,7 @@ export default {
       const beforeEventName = visible
         ? 'before-close'
         : 'before-open'
-
+console.log(beforeEventName);
       if (beforeEventName === 'before-open') {
         /**
          * Need to unfocus previously focused element, otherwise
