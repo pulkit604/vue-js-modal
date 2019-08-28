@@ -96,6 +96,8 @@ const Plugin = {
         Plugin.event.$emit('toggle', name, undefined, params)
       },
       openModalName () {
+        console.warn('HERE');
+        console.log('HREe');
         return root;
       },  
     }
