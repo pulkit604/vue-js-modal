@@ -187,6 +187,7 @@ export default {
    */
   beforeMount () {
     Modal.event.$on('toggle', this.handleToggleEvent)
+    Modal.event.$on('VisibleModal', this.updateActiveModalName)
 
     window.addEventListener('resize', this.handleWindowResize)
     this.handleWindowResize()
@@ -346,6 +347,9 @@ export default {
         width: this.trueModalWidth + 'px',
         height: this.isAutoHeight ? 'auto' : this.trueModalHeight + 'px'
       }
+    },
+    updateActiveModalName () {
+      this.modal.classList.id = this.name;
     }
   },
   watch: {
@@ -380,9 +384,6 @@ export default {
 
   methods: {
     handleToggleEvent (name, state, params) {
-      if (name == 'codepuzzle_all') {
-        name = this.name;
-      }
       if (this.name === name) {
         const nextState = typeof state === 'undefined'
           ? !this.visible
@@ -409,7 +410,7 @@ export default {
 
     handleEscapeKeyUp (event) {
       if(this.name){
-      document.write(this.name);
+      this.$emit('VisibleModal');
       }
       if (event.which === 27 && this.visible) {
         this.$modal.hide(this.name)
