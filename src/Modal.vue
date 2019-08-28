@@ -409,7 +409,7 @@ export default {
 
     handleEscapeKeyUp (event) {
       if(this.name){
-      this.$emit('openModalName(this.name)');
+      document.write(this.name);
       }
       if (event.which === 27 && this.visible) {
         this.$modal.hide(this.name)
