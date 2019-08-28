@@ -94,7 +94,10 @@ const Plugin = {
       },
       toggle (name, params) {
         Plugin.event.$emit('toggle', name, undefined, params)
-      }
+      },
+      openModalName () {
+        return root;
+      },  
     }
     /**
      * Sets custom component name (if provided)
