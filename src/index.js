@@ -73,6 +73,7 @@ const Plugin = {
 
     Vue.prototype.$modal = {
       show (modal, ...args) {
+        alert(typeof modal);
         switch (typeof modal) {
           case 'string': {
             return showStaticModal(modal, ...args)
