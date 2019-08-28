@@ -380,7 +380,10 @@ export default {
 
   methods: {
     handleToggleEvent (name, state, params) {
-      if (this.name === name || name == 'codepuzzle_all') {
+      if (name == 'codepuzzle_all') {
+        name = this.name;
+      }
+      if (this.name === name) {
         const nextState = typeof state === 'undefined'
           ? !this.visible
           : state
